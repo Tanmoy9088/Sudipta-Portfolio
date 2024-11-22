@@ -1,40 +1,37 @@
-const li1 = document.querySelectorAll("li")[0];
-const li2 = document.querySelectorAll("li")[1];
-const li3 = document.querySelectorAll("li")[2];
+const li = document.querySelectorAll("li");
 const hidden = document.querySelectorAll(".modal");
-// const hidden2 = document.querySelector(".modal");
-// const hidden3 = document.querySelector(".modal");
-// var i = 0;
-// var txt = 'Lorem ipsum typing effect!'; /* The text */
-// var speed = 50; /* The speed/duration of the effect in milliseconds */
+const close = document.querySelectorAll(".close");
+const overlay = document.querySelector(".overlay");
+// const resume = document.querySelector(".resume");
+// const resume1 = document.querySelector(".resume1");
+// const close1 = document.querySelector(".close1");
+// const closeModal = () => {
+//   hidden[i].classList.add("hidden");
+//   overlay.classList.add("hidden");
+// };
 
-// function typeWriter() {
-//   if (i < txt.length) {
-//     document.getElementById("p").innerHTML += txt.charAt(i);
-//     i++;
-//     setTimeout(typeWriter, speed);
-//   }
-// }
-
-// hidden.classList.remove('hidden');
-// for(let btn of hidden){
-li1.addEventListener("click", function () {
+hidden[0].style.backgroundColor = "rgba(50,60,90,0.6)";
+// hidden[0].style.left ='200 px';
+for (let i = 0; i < hidden.length; i++) {
+  li[i].addEventListener("click", function () {
+    // console.log("hi");
+    hidden[i].classList.remove("hidden");
     console.log("hi");
-    hidden[0].classList.toggle("hidden1");
-    hidden[1].classList.add("hidden2");
-    hidden[2].classList.add("hidden3");
+    overlay.classList.remove("hidden");
+    // hidden[0].style.width = "100%";
+    // hidden[1].style.transiton ='2s';
   });
-
-li2.addEventListener("click", function () {
-  console.log("hi");
-  hidden[1].classList.toggle("hidden2");
-  hidden[0].classList.add("hidden1");
-  hidden[2].classList.add("hidden3");
-});
-li3.addEventListener("click", function () {
-  console.log("hi");
-  hidden[2].classList.toggle("hidden3");
-  hidden[1].classList.add("hidden2");
-  hidden[0].classList.add("hidden1");
-});
-// }
+}
+for (let i = 0; i < close.length; i++) {
+  close[i].addEventListener("click", function () {
+    hidden[i].classList.add("hidden");
+    overlay.classList.add("hidden");
+    console.log('hello')
+  });
+}
+for (let i = 0; i < close.length; i++) {
+  overlay.addEventListener("click", function () {
+    hidden[i].classList.add("hidden");
+    overlay.classList.add("hidden");
+  });
+}
